@@ -20,18 +20,13 @@ namespace ConsoleUI
             //car1.DailyPrice = 275;
             //car1.Description = "Aylık kiralık";
 
-
-
-
             CarManager carManager = new CarManager(new EfCarDal());
             //carManager.Add(car1);
 
             // Update
-            //CarManager carManager = new CarManager(new EfCarDal());
             //carManager.Update(new Car { Id = 1007,BrandId=2,ColorId=1, ModelYear = 2006, Description = "Kampanya" });
 
             // Delete
-            // CarManager carManager = new CarManager(new EfCarDal());
             // carManager.Delete(new Car { Id = 1007 });
 
             // marka id ye göre dataları getiriyoruz.
@@ -43,7 +38,7 @@ namespace ConsoleUI
             // Joinlenen tabloları getiriyoruz.
             foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine(car.BrandName + "-"+ car.ColorName +" - "+car.DailyPrice);
+                Console.WriteLine(car.BrandName + "-" + car.ColorName + " - " + car.DailyPrice);
             }
 
             BrandManager brandManager = new BrandManager(new EfBrandDal());

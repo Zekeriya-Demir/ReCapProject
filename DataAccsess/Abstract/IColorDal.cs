@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Core.DataAccsess;
+using Entities;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
 
 namespace DataAccsess.Abstract
 {
-    interface IColorDal:IEntityRepository<Color>
+   public interface IColorDal:IEntityRepository<Color>
     {
     }
 }

@@ -10,8 +10,8 @@ using System.Text;
 
 namespace DataAccsess.Concrete.EntityFreamwork
 {
-    public class EfBrandDal : EfEntityRepositoryBase<Brand, ReCapContext>, IBrandDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, ReCapContext>, IColorDal
     {
-       
+
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using DataAccsess.Abstract;
+using DataAccsess.Concrete.EntityFreamwork;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +12,56 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _car;
+        EfCarDal _carDal;
 
-        public CarManager(ICarDal car)
+        public CarManager(EfCarDal car)
         {
-            _car = car;
+            _carDal = car;
         }
 
         public void Add(Car car)
         {
             if (car.DailyPrice > 0)
             {
-                _car.Add(car);
+                _carDal.Add(car);
+                Console.WriteLine("car eklendi");
             }
         }
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
         {
-            return _car.GetAll();
+            return _carDal.GetAll();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
 
         public List<Car> GetCarsByBrandId(int id)
         {
-            return _car.GetAll(c => c.BrandId == id).ToList();
+            return _carDal.GetAll(c => c.BrandId == id).ToList();
         }
 
        
         public List<Car> GetCarsByColorId(int id)
         {
-            return _car.GetAll(c => c.ColorId == id);
+            return _carDal.GetAll(c => c.ColorId == id);
+        }
+
+        public List<Car> GetDetalCarDto()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);
         }
     }
 }

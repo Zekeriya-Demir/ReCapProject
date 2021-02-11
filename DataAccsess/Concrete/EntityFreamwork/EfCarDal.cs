@@ -1,64 +1,30 @@
-﻿using DataAccsess.Abstract;
+﻿using Core.EntitiyFreamework;
+using DataAccsess.Abstract;
+using Entities;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Entities.DTOs;
 using System.Text;
 
 namespace DataAccsess.Concrete.EntityFreamwork
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {
-        public void Add(Car entity)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-            }
-        }
-
-        public void Delete(Car entity)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var deletedEntity = context.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
-            }
-        }
-
-        public Car Get(Expression<Func<Car, bool>> filter)
-        {
-            using(ReCapContext contex = new ReCapContext())
-            {
-                // contex.Set ile Product'a bağlan, filter'a göre datayı getir.
-                return contex.Set<Car>().SingleOrDefault(filter);
-            }
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        public List<CarDetailDto> GetCarDetails()
         {
             using (ReCapContext contex = new ReCapContext())
             {
-                // contex.Set ile Product'a bağlan.
-                // eğer filter null ise DbSet'deki prodcuta yerleş, oradaki (vt), tüm datayı listeye çevir.
-                // Null değilse filter'a göre datayı getir.
-                // arka planda select*product dönürür.
-                return filter == null ? contex.Set<Car>().ToList() : contex.Set<Car>().Where(filter).ToList();
-            }
-        }
+                var result = from c in contex.Cars
+                             join b in contex.Brands on c.BrandId equals b.Id
+                             join cl in contex.Colors on c.ColorId equals cl.Id
+                             select new CarDetailDto {CarId = c.Id, DailyPrice=c.DailyPrice, BrandName = b.BrandName, ColorName=cl.ColorName };
 
-        public void Update(Car entity)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var updatedEntity = context.Entry(entity); // referansı yakalar. 
-                updatedEntity.State = EntityState.Modified; // güncelle
-                context.SaveChanges(); // işlemi yap.
+                return result.ToList();
+
             }
         }
     }

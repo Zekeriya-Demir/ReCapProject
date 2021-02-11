@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccsess.Abstract
+namespace Core.DataAccsess
 {
-    public interface IEntityRepository<T>
+    public interface IEntityRepository<T> where T : class,IEntity,  new()
     {
         //filter=null - filtre yapmasanda olur. filtre yapmazsak tüm veriler gelir. 
         //Filtre uygularsak, şu değerler arasındaki veriyi getir gibi uyugularız.

@@ -10,9 +10,9 @@ namespace Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        EfColorDal _colorDal;
+        IColorDal _colorDal;
 
-        public ColorManager(EfColorDal colorDal)
+        public ColorManager(IColorDal colorDal)
         {
             _colorDal = colorDal;
         }

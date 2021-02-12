@@ -12,9 +12,9 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        EfCarDal _carDal;
+        ICarDal _carDal;
 
-        public CarManager(EfCarDal car)
+        public CarManager(ICarDal car)
         {
             _carDal = car;
         }

@@ -12,9 +12,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-           
-            UserGetAllTest();
-
+            
+            // RentalAddTest();
+            // CustomerAddTest();
+            // UserGetAllTest();
 
             // UserDeleteTest();
             // UserUpdateTest();
@@ -29,6 +30,19 @@ namespace ConsoleUI
             // ColorTest();
             // GetByBrandIdTest();
 
+        }
+
+        private static void RentalAddTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 2, 13), ReturnDate = new DateTime(2021, 2, 20) });
+        }
+
+        private static void CustomerAddTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer { UserId = 1, CompanyName = "Test" });
         }
 
         private static void UserGetAllTest()

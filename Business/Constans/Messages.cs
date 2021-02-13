@@ -16,6 +16,9 @@ namespace Business.Constans
         public static string UserUpdated = "Kullanıcı güncellendi";
         public static string UserDeleted = "Kullanıcı silindi";
         public static string UsersListes = "Kullanıcı listelendi";
+        public static string RentalAdded = "Kiralama başarılı";
+        public static string CustomerAdded = "Müşteri eklendi";
+
 
     }
 }

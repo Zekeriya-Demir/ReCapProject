@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Utilities;
 using DataAccsess.Abstract;
 using DataAccsess.Concrete.EntityFreamwork;
 using DataAccsess.Concrete.InMemory;
@@ -12,6 +13,12 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
            
+            UserGetAllTest();
+
+
+            // UserDeleteTest();
+            // UserUpdateTest();
+            // UserAdd();
 
             // CarAddTest();
             // CarUpdateTest();
@@ -22,6 +29,38 @@ namespace ConsoleUI
             // ColorTest();
             // GetByBrandIdTest();
 
+        }
+
+        private static void UserGetAllTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var user in result.Data)
+                {
+                    Console.WriteLine(user.FirstName);
+
+                }
+            }
+        }
+
+        private static void UserDeleteTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Delete(new User { Id = 3 });
+        }
+
+        private static void UserUpdateTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Update(new User { Id = 2, FirstName = "Hakan", LastName = "Yıldız", Email = "hakan@gm.co" });
+        }
+
+        private static void UserAdd()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User { FirstName = "Fatih", LastName = "Kale", Email = "fatih@gmail.com", Password = "17124" });
         }
 
         private static void CarAddTest()

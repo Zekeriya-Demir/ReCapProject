@@ -38,8 +38,9 @@ namespace Business.Concrete
 
         public IResult Delete(Car car)
         {
-            return new SuccessResult(Messages.CarDeleted);
             _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
+            
         }
 
         public IDataResult<List<Car>>GetAll()

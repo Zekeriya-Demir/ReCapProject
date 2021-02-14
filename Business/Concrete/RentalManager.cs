@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Abstract;
-using DataAccsess.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Core.Utilities.Concrete;
 using Business.Constans;
@@ -21,8 +21,10 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
+
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAdded);
+
         }
 
         public IResult Delete(Rental rental)
@@ -38,7 +40,7 @@ namespace Business.Concrete
 
         public IDataResult<Rental> GetByCustomerId(int id)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.CustomerId == id),Messages.CarsListes);
+            return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.CustomerId == id), Messages.CarsListes);
         }
 
         public IResult Update(Rental rental)

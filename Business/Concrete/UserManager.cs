@@ -1,15 +1,15 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
-using Core.DataAccsess;
-using Core.EntitiyFreamework;
+using Core.DataAccess;
+using Core.DataAccess.EntityFramework;
 using Core.Entities;
 using Entities.Concrete;
 using Business.Constans;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DataAccsess.Abstract;
+using DataAccess.Abstract;
 
 namespace Business.Concrete
 {

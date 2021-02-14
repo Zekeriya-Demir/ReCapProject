@@ -1,4 +1,4 @@
-﻿using Core.DataAccsess;
+﻿using Core.DataAccess;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Core.EntitiyFreamework
+namespace Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext>:IEntityRepository<TEntity>
         where TEntity: class, IEntity, new()

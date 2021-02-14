@@ -2,8 +2,8 @@
 using Business.Constans;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
-using DataAccsess.Abstract;
-using DataAccsess.Concrete.EntityFreamwork;
+using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;

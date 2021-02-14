@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.Utilities.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -9,11 +10,11 @@ namespace Business.Abstract
 {
     public interface IBrandService
     {
-        List<Brand> GetAll();
-        Brand GetByBrandId(int id);
-        void Add(Brand brand);
-        void Update(Brand brand);
-        void Delete(Brand brand);
+        IDataResult<List<Brand>> GetAll();
+        IDataResult<Brand> GetByBrandId(int id);
+        IResult Add(Brand brand);
+        IResult Update(Brand brand);
+        IResult Delete(Brand brand);
         
     }
 }

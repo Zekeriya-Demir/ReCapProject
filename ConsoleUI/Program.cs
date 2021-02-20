@@ -24,7 +24,7 @@ namespace ConsoleUI
             // CarAddTest();
             // CarUpdateTest();
             // CarDeleteTest();            
-            // CarsByBrandIdTest();
+             CarsByBrandIdTest();
             // CarDetailTest();
             // BrandTest();
             // ColorTest();

@@ -21,10 +21,10 @@ namespace ConsoleUI
             // UserUpdateTest();
             // UserAdd();
 
-            // CarAddTest();
+             CarAddTest();
             // CarUpdateTest();
             // CarDeleteTest();            
-             CarsByBrandIdTest();
+            // CarsByBrandIdTest();
             // CarDetailTest();
             // BrandTest();
             // ColorTest();
@@ -80,7 +80,7 @@ namespace ConsoleUI
         private static void CarAddTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car { BrandId = 2, ColorId = 1, ModelYear = 2017, DailyPrice = 250, Description = "indirimli" });
+            carManager.Add(new Car { BrandId = 1, ColorId = 2, ModelYear = 2014, DailyPrice = 50, Description = " %40 indirimli" });
         }
 
         private static void CarsByBrandIdTest()

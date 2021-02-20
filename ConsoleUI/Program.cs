@@ -80,7 +80,7 @@ namespace ConsoleUI
         private static void CarAddTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car { BrandId = 1, ColorId = 2, ModelYear = 2014, DailyPrice = 50, Description = " %40 indirimli" });
+            carManager.Add(new Car { BrandId = 1, ColorId = 3, ModelYear = 2005, DailyPrice = 130, Description = " test" });
         }
 
         private static void CarsByBrandIdTest()

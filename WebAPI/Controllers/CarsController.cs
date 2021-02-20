@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            
+
             var result = _carService.GetAll();
             if (result.Success)
             {
@@ -52,6 +52,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        
+
+        [HttpPost("add")]
+        public IActionResult Add(Car product)
+        {
+            var result = _carService.Add(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
